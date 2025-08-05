@@ -86,14 +86,14 @@
 			<div class="panel-heading">Últimos Comentários</div>
 			<div class="panel-body">
 			<?php
-				$myComments = getAllFrom("comment", "comments", "where user_id = $userid", "", "c_id");
-				if (! empty($myComments)) {
-					foreach ($myComments as $comment) {
-						echo '<p>' . $comment['comment'] . '</p>';
+				$myComments = getAllFrom("*", "comments", "where user_id = $userid", "", "c_id");
+					if (! empty($myComments)) {
+						foreach ($myComments as $comment) {
+							echo '<p><a href="items.php?itemid=' . $comment['item_id'] . '">' . htmlspecialchars($comment['comment']) . '</a></p>';
+						}
+					} else {
+						echo 'Sem comentários para mostrar';
 					}
-				} else {
-					echo 'Sem comentários pra mostrar';
-				}
 			?>
 			</div>
 		</div>
