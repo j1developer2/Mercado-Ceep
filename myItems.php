@@ -5,11 +5,6 @@
 
 <div class="container">
 		<?php
-            function getSingleValue($con, $sql, $parameters){
-                $q = $con->prepare($sql);
-                $q->execute($parameters);
-                return $q->fetchColumn();
-            }
             $myCategory = getSingleValue($con, "SELECT UserID FROM users WHERE username=?", [$_SESSION['user']]);
 			$allItems = getAllFrom("*", "items", "where Member_ID = {$myCategory}", "AND Approve = 1", "Item_ID");
 			echo '<h1 class="text-center">Meus Anúncios</h1>';
