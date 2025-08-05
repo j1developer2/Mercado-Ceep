@@ -111,6 +111,13 @@ if ($count > 0) { ?>
 			    </select>
                 </div>
             </div>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label">Foto de Perfil</label>
+                <div class="col-sm-10 col-md-6">
+                    <input type="file" name="avatar" class="form-control" />
+                    <small class="form-text text-muted">Deixe em branco se você não quer mudar a foto.</small>
+                </div>
+            </div>
           <!-- Start Submit Field -->
             <div class="form-group form-group-lg">
                 <div class="col-sm-offset-2 col-sm-10">

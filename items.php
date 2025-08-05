@@ -213,12 +213,6 @@
 			// Assign To Variable 
 
 			$comments = $stmt->fetchAll();
-
-			function getSingleValue($con, $sql, $parameters){
-				$q = $con->prepare($sql);
-				$q->execute($parameters);
-				return $q->fetchColumn();
-			}
 		?>
 		
 	<?php foreach ($comments as $comment) { 

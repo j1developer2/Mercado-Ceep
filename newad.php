@@ -328,12 +328,12 @@
 					<div class="col-md-4">
 						<div class="thumbnail item-box live-preview">
 							<span class="price-tag">
-								<span class="live-price">$ 0</span>
+								<span class="live-price">R$ 0</span>
 							</span>
 							<img id="output" class="img-responsive" alt="" />
 							<div class="caption">
-								<h3 class="live-title">Title</h3>
-								<p class="live-desc">Description</p>
+								<h3 class="live-title">Titulo</h3>
+								<p class="live-desc">Descrição</p>
 							</div>
 						</div>
 					</div>

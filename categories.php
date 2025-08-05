@@ -8,11 +8,6 @@
 		if (isset($_GET['pageid']) && is_numeric($_GET['pageid'])) {
 			$category = intval($_GET['pageid']);
 			$allItems = getAllFrom("*", "items", "where Cat_ID = {$category}", "AND Approve = 1", "Item_ID");
-			function getSingleValue($con, $sql, $parameters){
-				$q = $con->prepare($sql);
-				$q->execute($parameters);
-				return $q->fetchColumn();
-			}
 			$myCategory = getSingleValue($con, "SELECT Name FROM categories WHERE id=?", [$category]);
 			echo '<h1 class="text-center">'.$myCategory.'</h1>';
 			echo '<div class="row">';
