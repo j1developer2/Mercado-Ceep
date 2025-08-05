@@ -225,23 +225,24 @@
 		$myimage = getSingleValue($con, "SELECT avatar FROM users WHERE UserID=?", [$comment['user_id']]);		
 	?>
 		<div class="comment-box">
-			<div class="row">
-				<div class="col-sm-2 text-center">
-					<?php
-						echo '<img class="img-responsive img-thumbnail img-circle center-block" ';
-						if (empty($myimage)) {
-							echo "<img src='admin/uploads/default.png' alt='' />";
-						} else {
-							echo "<img src='admin/uploads/avatars/" . $myimage . "' alt='' />";
-						}
-						?>
-					<?php echo $comment['Member'] ?>
-				</div>
-				<div class="col-sm-10">
-					<p class="lead"><?php echo $comment['comment'] ?></p>
-				</div>
-			</div>
-		</div>
+    <div class="row">
+        <div class="col-sm-2 text-center">
+            <?php
+                echo '<img class="img-responsive img-thumbnail img-circle center-block" ';
+                if (empty($myimage)) {
+                    echo "src='admin/uploads/default.png' alt='' />";
+                } else {
+                    echo "src='admin/uploads/avatars/" . $myimage . "' alt='' />";
+                }
+            ?>
+            
+            <a href="users.php?userid=<?php echo $comment['user_id'] ?>"><?php echo $comment['Member'] ?></a>
+        </div>
+        <div class="col-sm-10">
+            <p class="lead"><?php echo $comment['comment'] ?></p>
+        </div>
+    </div>
+</div>
 		<hr class="custom-hr">
 	<?php } ?>
 </div>

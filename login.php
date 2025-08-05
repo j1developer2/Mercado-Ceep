@@ -126,42 +126,43 @@
 			if (empty($formErrors)) {
 				$random_number = rand(0, 10000000000);
 				$avatar = $random_number . '_' . $avatarName;
+				
+				// Define o caminho completo onde a imagem redimensionada será salva
+				$destination_path = "admin/uploads/avatars/" . $avatar;
 
-				move_uploaded_file($avatarTmp, "admin/uploads/avatars/" . $random_number . '_' . $avatarName);
+				// Tenta redimensionar a imagem. $avatarTmp é o arquivo temporário do upload.
+				$resize_success = redimensionarImagem($avatarTmp, $destination_path, 225, 225);
 
-				// Check If User Exist in Database
+				if ($resize_success) {
+					// Se a imagem foi redimensionada e salva com sucesso, continue com o registro
+					
+					// Check If User Exist in Database
+					$check = checkItem("Username", "users", $username);
 
-				$check = checkItem("Username", "users", $username);
+					if ($check == 1) {
+						$formErrors[] = 'Desculpa, esse usuário já existe';
+					} else {
+						// Insert Userinfo In Database
+						$stmt = $con->prepare("INSERT INTO 
+													users(Username, Password, Email, FullName, RegStatus, Date, avatar, Turma, Turno)
+												VALUES(:zuser, :zpass, :zmail, :zname, 0, now(), :zpic, :zturma, :zturno)");
+						$stmt->execute(array(
+							'zuser' => $username,
+							'zpass' => sha1($password),
+							'zmail' => $email,
+							'zname' => $fullname,
+							'zpic'  => $avatar, // Salva o nome do novo arquivo no banco de dados
+							'zturma'=> $turma,
+							'zturno'=> $turno
+						));
 
-				if ($check == 1) {
-
-					$formErrors[] = 'Desculpa, esse usuário já existe';
-
+						// Echo Success Message
+						$succesMsg = 'Registro efetuado com sucesso';
+					}
 				} else {
-
-					// Insert Userinfo In Database
-
-					$stmt = $con->prepare("INSERT INTO 
-											users(Username, Password, Email, FullName, RegStatus, Date, avatar, Turma, Turno)
-										VALUES(:zuser, :zpass, :zmail, :zname, 0, now(), :zpic, :zturma, :zturno)");
-					$stmt->execute(array(
-
-						'zuser' => $username,
-						'zpass' => sha1($password),
-						'zmail' => $email,
-						'zname' => $fullname,
-						'zpic'	=> $avatar,
-						'zturma'=> $turma,
-						'zturno'=> $turno
-
-					));
-
-					// Echo Success Message
-
-					$succesMsg = 'Registro efetuado com sucesso';
-
+					// Se o redimensionamento falhar, adicione um erro
+					$formErrors[] = 'Erro ao processar a imagem. Por favor, tente um arquivo JPG, PNG ou GIF.';
 				}
-
 			}
 
 		}
