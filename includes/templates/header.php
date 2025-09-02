@@ -24,6 +24,7 @@
 					</span>
 					<ul class="dropdown-menu">
 						<li><a href="profile.php">Minha Conta</a></li>
+						<li><a href="my_chats.php">Minhas Conversas</a></li>
 						<li><a href="newad.php">Novo Anuncio</a></li>
 						<li><a href="myItems.php">Meus Anuncios</a></li>
 						<li><a href="logout.php">Logout</a></li>
