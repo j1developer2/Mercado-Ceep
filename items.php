@@ -144,7 +144,7 @@
 				<h3>Diga o que você achou do produto</h3>
 				<form action="<?php echo $_SERVER['PHP_SELF'] . '?itemid=' . $item['Item_ID'] ?>" method="POST">
 					<textarea name="comment" required></textarea>
-					<input class="btn btn-primary" type="submit" value="Add Comment">
+					<input class="btn btn-primary" type="submit" value="Adicionar Comentário">
 				</form>
 				<?php 
 					if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -169,13 +169,13 @@
 
 							if ($stmt) {
 
-								echo '<div class="alert alert-success">Comment Added</div>';
+								echo '<div class="alert alert-success">Comentário Adicionado</div>';
 
 							}
 
 						} else {
 
-							echo '<div class="alert alert-danger">You Must Add Comment</div>';
+							echo '<div class="alert alert-danger">Você deve adicionar um comentário</div>';
 
 						}
 
