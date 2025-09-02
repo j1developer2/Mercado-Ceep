@@ -127,9 +127,12 @@
 					<span>Telefone</span> : <?php echo $item['contact'] ?>
 				</li>
 				<li>	
-					</br>
-					<i class="fa fa-whatsapp" aria-hidden="true"></i>
-					<span>Whatsapp</span> : <a href="https://wa.me/<?php echo $item['contact'] ?>?text=Estou interessado no item '<?php echo $item['Name'] ?>' por R$<?php echo $item['Price'] ?>"><img src="admin/layout/css/images/Whatsapp.webp" width=350></a>
+					</br></br>
+					<a href="chat.php?receiver_id=<?php echo $item['Member_ID']; ?>" class="btn btn-success btn-lg">
+						<i class="fa fa-comments"></i> Conversar com o Vendedor
+					</a>
+					</br></br></br>
+					<a href="https://wa.me/<?php echo $item['contact'] ?>?text=Estou interessado no item '<?php echo $item['Name'] ?>' por R$<?php echo $item['Price'] ?>"><img src="admin/layout/css/images/Whatsapp.webp" width=270></a>
 				</li>
 			</ul>
 		</div>
