@@ -4,11 +4,6 @@
 
 // Get the User ID from Session
 $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
-function getSingleValue($con, $sql, $parameters){
-    $q = $con->prepare($sql);
-    $q->execute($parameters);
-    return $q->fetchColumn();
-}
 $userid = getSingleValue($con, "SELECT UserID FROM users WHERE username=?", [$_SESSION['user']]);
 
 // Select All Data Depend On This ID

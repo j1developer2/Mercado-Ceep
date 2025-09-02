@@ -100,9 +100,9 @@ function redimensionarImagem($source_path, $destination_path, $new_width, $new_h
     return $success;
 	}
 
-	function getSingleValue($con, $sql, $parameters){
+    function getSingleValue($con, $sql, $parameters){
     $q = $con->prepare($sql);
     $q->execute($parameters);
     return $q->fetchColumn();
-	}
+}
 ?>
