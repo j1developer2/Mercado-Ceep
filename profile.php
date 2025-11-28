@@ -54,24 +54,55 @@
 			<?php
 				$myItems = getAllFrom("*", "items", "where Member_ID = $userid", "", "Item_ID");
 				if (! empty($myItems)) {
+
 					echo '<div class="row">';
+
 					foreach ($myItems as $item) {
+
+						// -------------------------------
+						// LIMITES COM "..."
+						// -------------------------------
+
+						// Título até 27 caracteres
+						$title = mb_substr($item['Name'], 0, 35, 'UTF-8');
+						if (mb_strlen($item['Name'], 'UTF-8') > 35) {
+							$title .= "...";
+						}
+
+						// Descrição até 65 caracteres
+						$desc = mb_substr($item['Description'], 0, 50, 'UTF-8');
+						if (mb_strlen($item['Description'], 'UTF-8') > 50) {
+							$desc .= "...";
+						}
+
 						echo '<div class="col-sm-6 col-md-3">';
 							echo '<div class="thumbnail item-box">';
+
 								if ($item['Approve'] == 0) { 
 									echo '<span class="approve-status">Waiting Approval</span>'; 
 								}
+
 								echo '<span class="price-tag">$' . $item['Price'] . '</span>';
 								echo '<img class="img-responsive" src="img.png" alt="" />';
+
 								echo '<div class="caption">';
-									echo '<h3><a href="items.php?itemid='. $item['Item_ID'] .'">' . $item['Name'] .'</a></h3>';
-									echo '<p>' . $item['Description'] . '</p>';
+
+									// TÍTULO LIMITADO + "..."
+									echo '<h3><a href="items.php?itemid='. $item['Item_ID'] .'">' . $title . '</a></h3>';
+
+									// DESCRIÇÃO LIMITADA + "..."
+									echo '<p>' . $desc . '</p>';
+
 									echo '<div class="date">' . $item['Add_Date'] . '</div>';
+
 								echo '</div>';
+
 							echo '</div>';
 						echo '</div>';
 					}
+
 					echo '</div>';
+
 				} else {
 					echo 'Sem anuncios pra mostrar, Crie um <a href="newad.php">Novo Anuncio</a>';
 				}
