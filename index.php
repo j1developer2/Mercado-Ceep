@@ -21,8 +21,8 @@
 
 							// --- CÓDIGO PARA LIMITAR O TÍTULO ---
 							$title = $item['Name'];
-							if (mb_strlen($title, 'UTF-8') > 50) {
-								$short_title = mb_substr($title, 0, 50, 'UTF-8') . '...';
+							if (mb_strlen($title, 'UTF-8') > 27) {
+								$short_title = mb_substr($title, 0, 27, 'UTF-8') . '...';
 							} else {
 								$short_title = $title;
 							}

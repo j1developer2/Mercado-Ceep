@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/09/2025 às 16:07
+-- Tempo de geração: 28/11/2025 às 18:23
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,16 +65,6 @@ CREATE TABLE `comments` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Despejando dados para a tabela `comments`
---
-
-INSERT INTO `comments` (`c_id`, `comment`, `status`, `comment_date`, `item_id`, `user_id`) VALUES
-(22, 'Gostei, recomendo!', 1, '2024-02-15', 28, 45),
-(28, 'Caramba João Caetano ???????????? Não sabia que você era assim!!!', 1, '2024-02-19', 32, 47),
-(30, 'Podia ser melhor, produto veio com defeitos e tem um pessimo gosto', 1, '2025-08-05', 31, 48),
-(31, 'foda demaise', 1, '2025-08-05', 31, 49);
-
 -- --------------------------------------------------------
 
 --
@@ -104,9 +94,17 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`Item_ID`, `Name`, `Description`, `Price`, `Add_Date`, `Country_Made`, `Status`, `Rating`, `Approve`, `Cat_ID`, `Member_ID`, `picture`, `contact`, `Sob_Encomenda`, `Turno`) VALUES
-(28, 'Paçoca', 'Paçoca doce e de qualidade, vendido por unidade', '0,75', '2024-02-14', '1G', '1', 0, 1, 4, 1, '3411587230_pacoca.jpeg', '41997698922', '1', '2'),
-(31, 'Ryan', 'Lava louça ', '15000', '2024-02-15', '2G', '4', 0, 1, 4, 46, '4242883624_17080211234631790845481446491607.jpg', '41991054839', '2', '2'),
-(32, 'Apostolado de João Caetano', 'João Caetano roubou a namorada do seu irmão??? Veja agora!!!', '1069', '2024-02-19', '1A', '1', 0, 1, 2, 47, '1747594773_images (11) (5).jpeg', '0412289', '1', '1');
+(36, 'Notebook Thinkpad T480', 'Notebook muito bom, pouco usado, 8gb de memória ram, 256gb de ssd, bateria funcionando na faixa de 4 horas, muito top', '1499', '2025-11-28', '3D', '2', 0, 1, 2, 49, '6310470328_20230928_141052973_iOS-scaled.png', '41997698922', '2', '1'),
+(37, 'Bicicleta vermelha aro 26', 'Bicicleta funcionando, vendendo porque troquei por uma melhor', '250', '2025-11-28', '3D', '3', 0, 1, 6, 49, '5088396084_589059565_804705819235847_4491084757463591751_n.jpg', '41997698922', '2', '1'),
+(38, ' Notebook STI Semp Toshiba NA 1401', 'Notebook Semp Toshiba NA 1401 que acompanha o carregador original, processador AMD Dual Core C-60 1 GHz, 2 GB de RAM e HD de 320 GB, tela está intacta, é um computador antigo funciona lentamente, só funciona com o cabo e pega wi-fi para Google e YouTube, algumas teclas falham mas funcionam.', '230', '2025-11-28', '3D', '3', 0, 1, 2, 49, '2305116139_558741463_1344429790677343_7645120661062567450_n.jpg', '41992562056', '2', '2'),
+(39, 'Fone Bluetooth Gm2 pro', 'Prepare-se para elevar sua experiência com o fone Bluetooth gamer mais desejado do momento.  O GM2 Pro combina design moderno, grave poderoso e latência ultrabaixa, garantindo que cada passo, tiro e batida chegue até você com precisão total.', '45', '2025-11-28', '3D', '1', 0, 1, 2, 49, '6156476917_588017148_25352411504445595_310767312915115522_n.jpg', '41997698922', '1', '1'),
+(40, 'Doze molas a venda refletivel', 'Usado apenas uma vez tamanho 38', '80', '2025-11-28', '2D', '3', 0, 1, 5, 49, '3374847200_585898683_2608262336210438_4581258878407856528_n.jpg', '41992562056', '2', '2'),
+(41, 'Bota Catphilos EPI', 'Bota Catphilos  NOVA  NÃO FOI USADA EPI pra serviço e para motoboy Anti derrapaste bota impermeável a água ,proteção de pedaleira Número 41 Valor : 120$  pra ir logo Motivo da venda ficou apertada em mim  Aceito troca em outro bota número 42 no mesmo nível', '120', '2025-11-28', '3C', '1', 0, 1, 5, 49, '7493846371_584799361_4256910834554607_8779699477694499866_n.jpg', '41992562056', '2', '3'),
+(42, 'Mangás Demon Slayer', 'Vendo 13 mangá do Demon Slayer  1,2,3,4,5,6,9,10,11,12,13,14,20 300 reais troco tbm. Não vendo separado', '300', '2025-11-28', '1A', '3', 0, 1, 1, 49, '747954956_579547422_1522262685492585_2867082557628648261_n.jpg', '41997698922', '2', '2'),
+(43, 'Mangá Fairy Tail – Volume 1 | Seminovo (Estado de Novo)', 'Este exemplar está seminovo e em estado de novo, com páginas limpas, capa intacta e sem sinais de uso, apenas fora do plástico original, por isso o preço está muito abaixo do mercado — uma oportunidade imperdível para colecionadores e leitores! ????', '20', '2025-11-28', '2C', '2', 0, 1, 1, 49, '5332995533_589788865_1388000626358762_5072458013489629481_n.jpg', '41997698922', '1', '2'),
+(44, 'Brigadeiro Caseiro', 'Vende-se deliciosos brigadeiros de panela, ingredientes de excelentes qualidade.', '10', '2025-11-28', '3E', '1', 0, 1, 4, 49, '383979887_481430140_647044977795033_5359888438986742911_n.jpg', '41992562056', '1', '3'),
+(45, 'Trufas', 'Caixinha de trufas, perfeito para presentear. Sabores: Brigadeiro branco, Brigadeiro de morango, Beijinho Paçoca', '14', '2025-11-28', '3B', '1', 0, 1, 4, 49, '2207256185_564219729_1903236697294163_8853117514891765644_n.jpg', '41997698922', '1', '1'),
+(46, 'Hollow Knight de crochê', 'Personagens de hollow knight feito de crochê, tanto de silksong quanto do jogo original.', '25', '2025-11-28', '2B', '1', 0, 1, 3, 49, '137140830_d6f823a1192e46e16d5838090cf118bd.jpg', '41992562056', '1', '2');
 
 -- --------------------------------------------------------
 
@@ -131,11 +129,12 @@ INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`, `
 (2, 52, 49, 'eae', '2025-09-02 08:40:48'),
 (3, 49, 52, 'blz?', '2025-09-02 08:40:53'),
 (4, 52, 49, 'kkeaeman', '2025-09-02 08:41:14'),
-(5, 49, 52, 'legal, agora manda foto da pika', '2025-09-02 08:41:43'),
-(6, 49, 52, 'alert(1)', '2025-09-02 09:00:51'),
 (7, 49, 52, 'eae', '2025-09-02 09:20:18'),
 (8, 52, 49, 'oi cara blz?', '2025-09-02 09:20:37'),
-(9, 49, 52, 'eae', '2025-09-02 09:21:17');
+(9, 49, 52, 'eae', '2025-09-02 09:21:17'),
+(10, 52, 49, 'eae', '2025-11-24 11:59:21'),
+(11, 49, 49, 'eae', '2025-11-28 14:08:38'),
+(12, 49, 49, 'bão', '2025-11-28 14:08:47');
 
 -- --------------------------------------------------------
 
@@ -166,12 +165,13 @@ INSERT INTO `users` (`UserID`, `Username`, `Password`, `Email`, `FullName`, `Gro
 (1, 'Admin', 'e96788c619244d8785cb61a35097e9be6733f9f0', 'Admin@gmail.com', 'Admin Admin', 1, 1, 1, '2020-08-27', '../default.png', '', ''),
 (45, 'Jeanzitos', '7fa232b334c265e0b3f62594139d0164ec8b37e1', 'pao.org321@gmail.com', 'Jean Joacir de Souza Pinto', 0, 0, 1, '2024-02-15', '9476787358_flopa.jpg', '2G', 'Tarde'),
 (46, 'Renato Cardoso Ayres ', '25458f1e530feb5248b97c958f75dc0ea983c9af', 'renato.cardos.ayres@gmail.com', 'Renato Cardoso Ayres ', 0, 0, 1, '2024-02-15', '4217065735_1708020998574170031266453017642.jpg', '2G', 'Tarde'),
-(47, 'simsoueu', 'e67b9f0eabfb226f9e2792202ddd4de3c98f1feb', 'kaueciesielski1@gmail.com', 'Kauê Ciesielski Stinglin ', 0, 0, 1, '2024-02-19', '8384084927_vito.jpeg', '1A', 'Manha'),
+(47, 'simsoueu', '222abfd959264bdf1cc7c49e569d2e207f13bcb9', 'kaueciesielski1@gmail.com', 'Kauê Ciesielski Stinglin ', 0, 0, 1, '2024-02-19', '8384084927_vito.jpeg', '1A', 'Manha'),
 (48, 'samurai_sulista', '40bf696d25dd56ed44c864e05f75d33a4cface91', 'rodoviacentoedez@gmail.com', 'Marcelo Pereira', 0, 0, 0, '2025-08-05', '7725566749_download.jfif', '3D', 'Manha'),
 (49, 'tonhao', 'e96788c619244d8785cb61a35097e9be6733f9f0', 'tonhao@gmail.com', 'tonhao pika', 0, 0, 0, '2025-08-05', '9068671_2609e8eafad4c4ab141b6233bac7cf3f.jpg', '1G', 'Noite'),
 (50, 'joaoazinhodomorro', '4410d99cefe57ec2c2cdbd3f1d5cf862bb4fb6f8', 'tonhao@gmail.com', 'tonhao pika', 0, 0, 0, '2025-08-06', '3149951370_The_Owl_House_-_Luz.webp', '2A', 'Noite'),
 (51, 'vinicius', '2b03d2afec0950eaa279059442d9df93611c2566', 'tonhao@gmail.com', 'tonhao pika', 0, 0, 0, '2025-08-06', '5856783744_download.jfif', '1F', 'Noite'),
-(52, 'eaee', 'e75df26b556bb441f3571791cc6b17f34162f20f', 'eae@gmail.com', 'eae', 0, 0, 0, '2025-09-02', '8515603487_eae2.png', '1F', 'Tarde');
+(52, 'eaee', 'e75df26b556bb441f3571791cc6b17f34162f20f', 'eae@gmail.com', 'eae', 0, 0, 0, '2025-09-02', '8515603487_eae2.png', '1F', 'Tarde'),
+(54, 'joaopedro_1a', '7288edd0fc3ffcbe93a0cf06e3568e28521687bc', 'joao.alves1a@example.com', 'João Pedro Alves', 0, 0, 0, '2025-10-10', '701828549_images.png', '1A', 'Manha');
 
 --
 -- Índices para tabelas despejadas
@@ -227,25 +227,25 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de tabela `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `items`
 --
 ALTER TABLE `items`
-  MODIFY `Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de tabela `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'To Identify User', AUTO_INCREMENT=53;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'To Identify User', AUTO_INCREMENT=55;
 
 --
 -- Restrições para tabelas despejadas
